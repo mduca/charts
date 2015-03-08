@@ -1,0 +1,59 @@
+<html>
+<head><!-- Load c3.css -->
+<link href="/bower_components/c3/c3.min.css" rel="stylesheet" type="text/css">
+
+<!-- Load d3.js and c3.js -->
+<script src="/bower_components/d3/d3.min.js" charset="utf-8"></script>
+<script src="/bower_components/c3/c3.min.js"></script>
+</head>
+<body>
+  
+  <div id="chart"></div>
+
+<script>
+  var blah = [
+
+    [1.49,255,379.95],
+    [1.49,264,393.36],
+    [1.89,70,132.29],
+    [1.89,205,387.45],
+    [4.21,34,143.14],
+    [4.66,62,288.92],
+    [3.62,115,416.3],
+    [5.49,23,126.27],
+    [5.68,70,397.59],
+    [6.59,13,85.67],
+    [5.92,75,444],
+    [6.59,14,92.25],
+    [5.92,51,301.92],
+    [6.95,40,278],
+    [5.99,72,431.28],
+    [6.59,67,441.53],
+    [6.59,50,329.5],
+    [7.11,103,732.33]
+  ]
+
+  var data1 = ["price"]
+  var data2 = ["sold"]
+  var data3 = ["gross"]
+
+  blah.forEach(function(e){
+    data1.push(e[0])
+    data2.push(e[1])
+    data3.push(e[2])
+  })
+
+  var chart = c3.generate({
+    bindto: '#chart',
+    data: {
+      columns: [
+        data1,
+        data2,
+        data3
+      ],
+      onmouseover: function(d) {console.log(d)}
+    }
+});
+</script>
+</body>
+</html>
